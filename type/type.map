@@ -1,0 +1,36 @@
+text size :    211(0x000D3)
+data size :     17(0x00011)
+bss  size :      0(0x00000)
+
+0x00000024 : (.text)
+0x00000024 : _HighMain
+0x00000097 : (.text)
+0x00000097 : _HighStartup
+0x000000A0 : _api_putchar
+0x000000A0 : (.text)
+0x000000AC : _api_putstr0
+0x000000AC : (.text)
+0x000000BA : _api_end
+0x000000BA : (.text)
+0x000000C1 : _api_fopen
+0x000000C1 : (.text)
+0x000000CF : _api_fread
+0x000000CF : (.text)
+0x000000E5 : _api_cmdline
+0x000000E5 : (.text)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000400 : (.data)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)

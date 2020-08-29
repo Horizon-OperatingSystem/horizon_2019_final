@@ -1,0 +1,51 @@
+text size :   2344(0x00928)
+data size :    292(0x00124)
+bss  size :      0(0x00000)
+
+0x00000024 : (.text)
+0x00000024 : _HighMain
+0x0000067E : _putstr
+0x000007EA : _wait
+0x00000843 : _setdec8
+0x00000873 : (.text)
+0x00000873 : _HighStartup
+0x0000087C : _api_openwin
+0x0000087C : (.text)
+0x0000089A : _api_putstrwin
+0x0000089A : (.text)
+0x000008C2 : _api_boxfilwin
+0x000008C2 : (.text)
+0x000008EA : _api_refreshwin
+0x000008EA : (.text)
+0x0000090C : _api_getkey
+0x0000090C : (.text)
+0x00000918 : _api_alloctimer
+0x00000918 : (.text)
+0x00000920 : _api_inittimer
+0x00000920 : (.text)
+0x00000932 : _api_settimer
+0x00000932 : (.text)
+0x00000944 : __alloca
+0x00000944 : (.text)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00016800 : (.data)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)

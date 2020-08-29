@@ -1,0 +1,36 @@
+text size :   1430(0x00596)
+data size :    109(0x0006D)
+bss  size :      0(0x00000)
+
+0x00000024 : (.text)
+0x00000024 : _putchar
+0x00000038 : _exit
+0x00000041 : _printf
+0x00000070 : _puts
+0x0000009F : _HighMain
+0x000000C7 : (.text)
+0x000000C7 : _HighStartup
+0x000000D0 : (.text)
+0x0000010C : _strtoul0
+0x000001DF : (.text)
+0x00000207 : _vsprintf
+0x00000599 : _api_putchar
+0x00000599 : (.text)
+0x000005A5 : _api_putstr0
+0x000005A5 : (.text)
+0x000005B3 : _api_end
+0x000005B3 : (.text)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00002800 : (.data)
+0x0000284D : (.data)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)

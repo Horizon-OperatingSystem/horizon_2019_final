@@ -1,0 +1,32 @@
+text size :    966(0x003C6)
+data size :      8(0x00008)
+bss  size :      0(0x00000)
+
+0x00000024 : (.text)
+0x00000024 : _HighMain
+0x0000035F : (.text)
+0x0000035F : _HighStartup
+0x00000368 : _api_openwin
+0x00000368 : (.text)
+0x00000386 : _api_putstrwin
+0x00000386 : (.text)
+0x000003AE : _api_boxfilwin
+0x000003AE : (.text)
+0x000003D6 : _api_getkey
+0x000003D6 : (.text)
+0x000003E2 : __alloca
+0x000003E2 : (.text)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x0005F000 : (.data)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)

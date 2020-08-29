@@ -1,0 +1,141 @@
+     1 00000000                                 [FORMAT "WCOFF"]
+     2 00000000                                 [INSTRSET "i486p"]
+     3 00000000                                 [OPTIMIZE 1]
+     4 00000000                                 [OPTION 1]
+     5 00000000                                 [BITS 32]
+     6 00000000                                 	EXTERN	_api_putchar
+     7 00000000                                 	EXTERN	_api_end
+     8 00000000                                 	EXTERN	_vsprintf
+     9 00000000                                 	EXTERN	_api_putstr0
+    10 00000000                                 	EXTERN	_api_boxfilwin
+    11 00000000                                 	EXTERN	_api_putstrwin
+    12 00000000                                 	EXTERN	_api_initmalloc
+    13 00000000                                 	EXTERN	_api_malloc
+    14 00000000                                 	EXTERN	_api_openwin
+    15 00000000                                 	EXTERN	_api_getkey
+    16 00000000                                 [FILE "test.c"]
+    17                                          [SECTION .text]
+    18 00000000                                 	GLOBAL	_putchar
+    19 00000000                                 _putchar:
+    20 00000000 55                              	PUSH	EBP
+    21 00000001 89 E5                           	MOV	EBP,ESP
+    22 00000003 53                              	PUSH	EBX
+    23 00000004 8B 5D 08                        	MOV	EBX,DWORD [8+EBP]
+    24 00000007 53                              	PUSH	EBX
+    25 00000008 E8 [00000000]                   	CALL	_api_putchar
+    26 0000000D 89 D8                           	MOV	EAX,EBX
+    27 0000000F 8B 5D FC                        	MOV	EBX,DWORD [-4+EBP]
+    28 00000012 C9                              	LEAVE
+    29 00000013 C3                              	RET
+    30 00000014                                 	GLOBAL	_exit
+    31 00000014                                 _exit:
+    32 00000014 55                              	PUSH	EBP
+    33 00000015 89 E5                           	MOV	EBP,ESP
+    34 00000017 5D                              	POP	EBP
+    35 00000018 E9 [00000000]                   	JMP	_api_end
+    36 0000001D                                 	GLOBAL	_printf
+    37 0000001D                                 _printf:
+    38 0000001D 55                              	PUSH	EBP
+    39 0000001E 89 E5                           	MOV	EBP,ESP
+    40 00000020 56                              	PUSH	ESI
+    41 00000021 53                              	PUSH	EBX
+    42 00000022 81 EC 000003F0                  	SUB	ESP,1008
+    43 00000028 8D 45 0C                        	LEA	EAX,DWORD [12+EBP]
+    44 0000002B 8D 9D FFFFFC08                  	LEA	EBX,DWORD [-1016+EBP]
+    45 00000031 50                              	PUSH	EAX
+    46 00000032 FF 75 08                        	PUSH	DWORD [8+EBP]
+    47 00000035 53                              	PUSH	EBX
+    48 00000036 E8 [00000000]                   	CALL	_vsprintf
+    49 0000003B 53                              	PUSH	EBX
+    50 0000003C 89 C6                           	MOV	ESI,EAX
+    51 0000003E E8 [00000000]                   	CALL	_api_putstr0
+    52 00000043 8D 65 F8                        	LEA	ESP,DWORD [-8+EBP]
+    53 00000046 89 F0                           	MOV	EAX,ESI
+    54 00000048 5B                              	POP	EBX
+    55 00000049 5E                              	POP	ESI
+    56 0000004A 5D                              	POP	EBP
+    57 0000004B C3                              	RET
+    58 0000004C                                 	GLOBAL	_puts
+    59 0000004C                                 _puts:
+    60 0000004C 55                              	PUSH	EBP
+    61 0000004D 89 E5                           	MOV	EBP,ESP
+    62 0000004F 56                              	PUSH	ESI
+    63 00000050 53                              	PUSH	EBX
+    64 00000051 81 EC 000003F0                  	SUB	ESP,1008
+    65 00000057 8D 45 0C                        	LEA	EAX,DWORD [12+EBP]
+    66 0000005A 8D 9D FFFFFC08                  	LEA	EBX,DWORD [-1016+EBP]
+    67 00000060 50                              	PUSH	EAX
+    68 00000061 FF 75 08                        	PUSH	DWORD [8+EBP]
+    69 00000064 53                              	PUSH	EBX
+    70 00000065 E8 [00000000]                   	CALL	_vsprintf
+    71 0000006A 53                              	PUSH	EBX
+    72 0000006B 89 C6                           	MOV	ESI,EAX
+    73 0000006D E8 [00000000]                   	CALL	_api_putstr0
+    74 00000072 8D 65 F8                        	LEA	ESP,DWORD [-8+EBP]
+    75 00000075 89 F0                           	MOV	EAX,ESI
+    76 00000077 5B                              	POP	EBX
+    77 00000078 5E                              	POP	ESI
+    78 00000079 5D                              	POP	EBP
+    79 0000007A C3                              	RET
+    80 0000007B                                 	GLOBAL	_ShineString
+    81 0000007B                                 _ShineString:
+    82 0000007B 55                              	PUSH	EBP
+    83 0000007C 89 E5                           	MOV	EBP,ESP
+    84 0000007E 6A 07                           	PUSH	7
+    85 00000080 6A 29                           	PUSH	41
+    86 00000082 6A 73                           	PUSH	115
+    87 00000084 6A 1B                           	PUSH	27
+    88 00000086 6A 1C                           	PUSH	28
+    89 00000088 FF 35 [00000014]                	PUSH	DWORD [_win]
+    90 0000008E E8 [00000000]                   	CALL	_api_boxfilwin
+    91 00000093 FF 75 08                        	PUSH	DWORD [8+EBP]
+    92 00000096 6A 0E                           	PUSH	14
+    93 00000098 6A 00                           	PUSH	0
+    94 0000009A 6A 1B                           	PUSH	27
+    95 0000009C 6A 1C                           	PUSH	28
+    96 0000009E FF 35 [00000014]                	PUSH	DWORD [_win]
+    97 000000A4 E8 [00000000]                   	CALL	_api_putstrwin
+    98 000000A9 C9                              	LEAVE
+    99 000000AA C3                              	RET
+   100                                          [SECTION .data]
+   101 00000000                                 LC0:
+   102 00000000 54 65 73 74 00                  	DB	"Test",0x00
+   103 00000005                                 LC1:
+   104 00000005 48 65 6C 6C 6F 20 4F 53 20 57   	DB	"Hello OS World",0x00
+       0000000F 6F 72 6C 64 00 
+   105                                          [SECTION .text]
+   106 000000AB                                 	GLOBAL	_HighMain
+   107 000000AB                                 _HighMain:
+   108 000000AB 55                              	PUSH	EBP
+   109 000000AC 89 E5                           	MOV	EBP,ESP
+   110 000000AE E8 [00000000]                   	CALL	_api_initmalloc
+   111 000000B3 68 00002710                     	PUSH	10000
+   112 000000B8 E8 [00000000]                   	CALL	_api_malloc
+   113 000000BD A3 [00000018]                   	MOV	DWORD [_buf],EAX
+   114 000000C2 68 [00000000]                   	PUSH	LC0
+   115 000000C7 6A 32                           	PUSH	50
+   116 000000C9 68 000000C8                     	PUSH	200
+   117 000000CE 50                              	PUSH	EAX
+   118 000000CF E8 [00000000]                   	CALL	_api_openwin
+   119 000000D4 A3 [00000014]                   	MOV	DWORD [_win],EAX
+   120 000000D9 68 [00000005]                   	PUSH	LC1
+   121 000000DE E8 FFFFFF98                     	CALL	_ShineString
+   122 000000E3 83 C4 18                        	ADD	ESP,24
+   123 000000E6                                 L7:
+   124 000000E6 6A 01                           	PUSH	1
+   125 000000E8 E8 [00000000]                   	CALL	_api_getkey
+   126 000000ED 5A                              	POP	EDX
+   127 000000EE 83 C0 80                        	ADD	EAX,-128
+   128 000000F1 74 F3                           	JE	L7
+   129 000000F3 C9                              	LEAVE
+   130 000000F4 E9 [00000000]                   	JMP	_api_end
+   131 000000F9                                 	GLOBAL	_win
+   132                                          [SECTION .data]
+   133 00000014                                 	ALIGNB	4
+   134 00000014                                 _win:
+   135 00000014 00 00 00 00                     	RESB	4
+   136 00000018                                 	GLOBAL	_buf
+   137                                          [SECTION .data]
+   138 00000018                                 	ALIGNB	4
+   139 00000018                                 _buf:
+   140 00000018 00 00 00 00                     	RESB	4

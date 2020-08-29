@@ -1,0 +1,145 @@
+     1 00000000                                 [FORMAT "WCOFF"]
+     2 00000000                                 [INSTRSET "i486p"]
+     3 00000000                                 [OPTIMIZE 1]
+     4 00000000                                 [OPTION 1]
+     5 00000000                                 [BITS 32]
+     6 00000000                                 	EXTERN	_api_putchar
+     7 00000000                                 	EXTERN	_api_end
+     8 00000000                                 	EXTERN	_vsprintf
+     9 00000000                                 	EXTERN	_api_putstr0
+    10 00000000                                 [FILE "help.c"]
+    11                                          [SECTION .text]
+    12 00000000                                 	GLOBAL	_putchar
+    13 00000000                                 _putchar:
+    14 00000000 55                              	PUSH	EBP
+    15 00000001 89 E5                           	MOV	EBP,ESP
+    16 00000003 53                              	PUSH	EBX
+    17 00000004 8B 5D 08                        	MOV	EBX,DWORD [8+EBP]
+    18 00000007 53                              	PUSH	EBX
+    19 00000008 E8 [00000000]                   	CALL	_api_putchar
+    20 0000000D 89 D8                           	MOV	EAX,EBX
+    21 0000000F 8B 5D FC                        	MOV	EBX,DWORD [-4+EBP]
+    22 00000012 C9                              	LEAVE
+    23 00000013 C3                              	RET
+    24 00000014                                 	GLOBAL	_exit
+    25 00000014                                 _exit:
+    26 00000014 55                              	PUSH	EBP
+    27 00000015 89 E5                           	MOV	EBP,ESP
+    28 00000017 5D                              	POP	EBP
+    29 00000018 E9 [00000000]                   	JMP	_api_end
+    30 0000001D                                 	GLOBAL	_printf
+    31 0000001D                                 _printf:
+    32 0000001D 55                              	PUSH	EBP
+    33 0000001E 89 E5                           	MOV	EBP,ESP
+    34 00000020 56                              	PUSH	ESI
+    35 00000021 53                              	PUSH	EBX
+    36 00000022 81 EC 000003F0                  	SUB	ESP,1008
+    37 00000028 8D 45 0C                        	LEA	EAX,DWORD [12+EBP]
+    38 0000002B 8D 9D FFFFFC08                  	LEA	EBX,DWORD [-1016+EBP]
+    39 00000031 50                              	PUSH	EAX
+    40 00000032 FF 75 08                        	PUSH	DWORD [8+EBP]
+    41 00000035 53                              	PUSH	EBX
+    42 00000036 E8 [00000000]                   	CALL	_vsprintf
+    43 0000003B 53                              	PUSH	EBX
+    44 0000003C 89 C6                           	MOV	ESI,EAX
+    45 0000003E E8 [00000000]                   	CALL	_api_putstr0
+    46 00000043 8D 65 F8                        	LEA	ESP,DWORD [-8+EBP]
+    47 00000046 89 F0                           	MOV	EAX,ESI
+    48 00000048 5B                              	POP	EBX
+    49 00000049 5E                              	POP	ESI
+    50 0000004A 5D                              	POP	EBP
+    51 0000004B C3                              	RET
+    52 0000004C                                 	GLOBAL	_puts
+    53 0000004C                                 _puts:
+    54 0000004C 55                              	PUSH	EBP
+    55 0000004D 89 E5                           	MOV	EBP,ESP
+    56 0000004F 56                              	PUSH	ESI
+    57 00000050 53                              	PUSH	EBX
+    58 00000051 81 EC 000003F0                  	SUB	ESP,1008
+    59 00000057 8D 45 0C                        	LEA	EAX,DWORD [12+EBP]
+    60 0000005A 8D 9D FFFFFC08                  	LEA	EBX,DWORD [-1016+EBP]
+    61 00000060 50                              	PUSH	EAX
+    62 00000061 FF 75 08                        	PUSH	DWORD [8+EBP]
+    63 00000064 53                              	PUSH	EBX
+    64 00000065 E8 [00000000]                   	CALL	_vsprintf
+    65 0000006A 53                              	PUSH	EBX
+    66 0000006B 89 C6                           	MOV	ESI,EAX
+    67 0000006D E8 [00000000]                   	CALL	_api_putstr0
+    68 00000072 8D 65 F8                        	LEA	ESP,DWORD [-8+EBP]
+    69 00000075 89 F0                           	MOV	EAX,ESI
+    70 00000077 5B                              	POP	EBX
+    71 00000078 5E                              	POP	ESI
+    72 00000079 5D                              	POP	EBP
+    73 0000007A C3                              	RET
+    74                                          [SECTION .data]
+    75 00000000                                 LC0:
+    76 00000000 57 65 6C 63 6F 6D 65 20 54 6F   	DB	"Welcome To Horizon Kernel Command Helper",0x0A,0x00
+       0000000A 20 48 6F 72 69 7A 6F 6E 20 4B 
+       00000014 65 72 6E 65 6C 20 43 6F 6D 6D 
+       0000001E 61 6E 64 20 48 65 6C 70 65 72 
+       00000028 0A 00 
+    77 0000002A                                 LC1:
+    78 0000002A 2E 68 69 67 20 49 73 20 48 6F   	DB	".hig Is Horizon Exec Programs",0x0A,0x00
+       00000034 72 69 7A 6F 6E 20 45 78 65 63 
+       0000003E 20 50 72 6F 67 72 61 6D 73 0A 
+       00000048 00 
+    79 00000049                                 LC2:
+    80 00000049 66 6C 20 2D 20 53 68 6F 77 20   	DB	"fl - Show File List",0x0A,0x00
+       00000053 46 69 6C 65 20 4C 69 73 74 0A 
+       0000005D 00 
+    81 0000005E                                 LC3:
+    82 0000005E 6D 65 6D 20 2D 20 53 68 6F 77   	DB	"mem - Show Memory Status",0x0A,0x00
+       00000068 20 4D 65 6D 6F 72 79 20 53 74 
+       00000072 61 74 75 73 0A 00 
+    83 00000078                                 LC4:
+    84 00000078 63 6C 73 20 2D 20 43 6C 65 61   	DB	"cls - Clear The Screen",0x0A,0x00
+       00000082 72 20 54 68 65 20 53 63 72 65 
+       0000008C 65 6E 0A 00 
+    85 00000090                                 LC5:
+    86 00000090 65 78 69 74 20 2D 20 45 78 69   	DB	"exit - Exit The Console",0x0A,0x00
+       0000009A 74 20 54 68 65 20 43 6F 6E 73 
+       000000A4 6F 6C 65 0A 00 
+    87 000000A9                                 LC6:
+    88 000000A9 73 74 61 72 74 20 5B 48 69 67   	DB	"start [Hig Name] - Start Hig With A New Window",0x0A,0x00
+       000000B3 20 4E 61 6D 65 5D 20 2D 20 53 
+       000000BD 74 61 72 74 20 48 69 67 20 57 
+       000000C7 69 74 68 20 41 20 4E 65 77 20 
+       000000D1 57 69 6E 64 6F 77 0A 00 
+    89 000000D9                                 LC7:
+    90 000000D9 6E 63 73 74 20 5B 48 69 67 20   	DB	"ncst [Hig Name] - Start Hig With No Consoles",0x0A,0x00
+       000000E3 4E 61 6D 65 5D 20 2D 20 53 74 
+       000000ED 61 72 74 20 48 69 67 20 57 69 
+       000000F7 74 68 20 4E 6F 20 43 6F 6E 73 
+       00000101 6F 6C 65 73 0A 00 
+    91 00000107                                 LC8:
+    92 00000107 5B 48 69 67 20 4E 61 6D 65 5D   	DB	"[Hig Name] - Start Hig With This Console",0x0A,0x00
+       00000111 20 2D 20 53 74 61 72 74 20 48 
+       0000011B 69 67 20 57 69 74 68 20 54 68 
+       00000125 69 73 20 43 6F 6E 73 6F 6C 65 
+       0000012F 0A 00 
+    93                                          [SECTION .text]
+    94 0000007B                                 	GLOBAL	_HighMain
+    95 0000007B                                 _HighMain:
+    96 0000007B 55                              	PUSH	EBP
+    97 0000007C 89 E5                           	MOV	EBP,ESP
+    98 0000007E 68 [00000000]                   	PUSH	LC0
+    99 00000083 E8 FFFFFF95                     	CALL	_printf
+   100 00000088 68 [0000002A]                   	PUSH	LC1
+   101 0000008D E8 FFFFFF8B                     	CALL	_printf
+   102 00000092 68 [00000049]                   	PUSH	LC2
+   103 00000097 E8 FFFFFF81                     	CALL	_printf
+   104 0000009C 68 [0000005E]                   	PUSH	LC3
+   105 000000A1 E8 FFFFFF77                     	CALL	_printf
+   106 000000A6 68 [00000078]                   	PUSH	LC4
+   107 000000AB E8 FFFFFF6D                     	CALL	_printf
+   108 000000B0 68 [00000090]                   	PUSH	LC5
+   109 000000B5 E8 FFFFFF63                     	CALL	_printf
+   110 000000BA 68 [000000A9]                   	PUSH	LC6
+   111 000000BF E8 FFFFFF59                     	CALL	_printf
+   112 000000C4 68 [000000D9]                   	PUSH	LC7
+   113 000000C9 E8 FFFFFF4F                     	CALL	_printf
+   114 000000CE 83 C4 20                        	ADD	ESP,32
+   115 000000D1 68 [00000107]                   	PUSH	LC8
+   116 000000D6 E8 FFFFFF42                     	CALL	_printf
+   117 000000DB 6A 00                           	PUSH	0
+   118 000000DD E8 FFFFFF32                     	CALL	_exit

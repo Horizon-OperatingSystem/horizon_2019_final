@@ -1,0 +1,56 @@
+     1 00000000                                 [FORMAT "WCOFF"]
+     2 00000000                                 [INSTRSET "i486p"]
+     3 00000000                                 [OPTIMIZE 1]
+     4 00000000                                 [OPTION 1]
+     5 00000000                                 [BITS 32]
+     6 00000000                                 	EXTERN	__alloca
+     7 00000000                                 	EXTERN	_api_openwin
+     8 00000000                                 	EXTERN	_api_putstrwin
+     9 00000000                                 	EXTERN	_api_getkey
+    10 00000000                                 	EXTERN	_api_end
+    11 00000000                                 [FILE "about.c"]
+    12                                          [SECTION .data]
+    13 00000000                                 LC0:
+    14 00000000 41 62 6F 75 74 00               	DB	"About",0x00
+    15 00000006                                 LC1:
+    16 00000006 4D 69 6E 64 20 47 72 6F 75 70   	DB	"Mind Group  Horizon",0x00
+       00000010 20 20 48 6F 72 69 7A 6F 6E 00 
+    17 0000001A                                 LC2:
+    18 0000001A 76 65 72 20 31 2E 33 2E 31 38   	DB	"ver 1.3.18.0816",0x00
+       00000024 2E 30 38 31 36 00 
+    19                                          [SECTION .text]
+    20 00000000                                 	GLOBAL	_HighMain
+    21 00000000                                 _HighMain:
+    22 00000000 55                              	PUSH	EBP
+    23 00000001 B8 000036B0                     	MOV	EAX,14000
+    24 00000006 89 E5                           	MOV	EBP,ESP
+    25 00000008 53                              	PUSH	EBX
+    26 00000009 E8 [00000000]                   	CALL	__alloca
+    27 0000000E 68 [00000000]                   	PUSH	LC0
+    28 00000013 6A 46                           	PUSH	70
+    29 00000015 8D 85 FFFFC94C                  	LEA	EAX,DWORD [-14004+EBP]
+    30 0000001B 68 000000C8                     	PUSH	200
+    31 00000020 50                              	PUSH	EAX
+    32 00000021 E8 [00000000]                   	CALL	_api_openwin
+    33 00000026 68 [00000006]                   	PUSH	LC1
+    34 0000002B 6A 13                           	PUSH	19
+    35 0000002D 89 C3                           	MOV	EBX,EAX
+    36 0000002F 6A 00                           	PUSH	0
+    37 00000031 6A 1E                           	PUSH	30
+    38 00000033 6A 0A                           	PUSH	10
+    39 00000035 50                              	PUSH	EAX
+    40 00000036 E8 [00000000]                   	CALL	_api_putstrwin
+    41 0000003B 83 C4 28                        	ADD	ESP,40
+    42 0000003E 68 [0000001A]                   	PUSH	LC2
+    43 00000043 6A 0F                           	PUSH	15
+    44 00000045 6A 00                           	PUSH	0
+    45 00000047 6A 32                           	PUSH	50
+    46 00000049 6A 0A                           	PUSH	10
+    47 0000004B 53                              	PUSH	EBX
+    48 0000004C E8 [00000000]                   	CALL	_api_putstrwin
+    49 00000051 6A 01                           	PUSH	1
+    50 00000053 E8 [00000000]                   	CALL	_api_getkey
+    51 00000058 E8 [00000000]                   	CALL	_api_end
+    52 0000005D 8B 5D FC                        	MOV	EBX,DWORD [-4+EBP]
+    53 00000060 C9                              	LEAVE
+    54 00000061 C3                              	RET

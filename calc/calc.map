@@ -1,0 +1,46 @@
+text size :   2624(0x00A40)
+data size :     60(0x0003C)
+bss  size :      0(0x00000)
+
+0x00000000 : (.text)
+0x00000024 : (.text)
+0x00000024 : _HighMain
+0x0000009A : _skipspace
+0x000000AF : _getnum
+0x0000047B : (.text)
+0x0000047B : _HighStartup
+0x00000484 : _sprintf
+0x00000484 : (.text)
+0x00000498 : _strtol
+0x00000498 : (.text)
+0x00000574 : (.text)
+0x000005B0 : _strtoul0
+0x00000683 : (.text)
+0x000006AB : _vsprintf
+0x00000A3D : _api_putstr0
+0x00000A3D : (.text)
+0x00000A4B : _api_end
+0x00000A4B : (.text)
+0x00000A52 : _api_cmdline
+0x00000A52 : (.text)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00001000 : (.data)
+0x00001018 : (.data)
+0x00001018 : _errno
+0x0000101C : (.data)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
