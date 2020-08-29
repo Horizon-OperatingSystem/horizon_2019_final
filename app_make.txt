@@ -1,0 +1,63 @@
+TOOLPATH = ../../z_HighSDK/
+INCPATH  = ../../z_HighSDK/apps/
+
+MAKE     = make -r
+NASK     = $(TOOLPATH)nask.exe
+CC1      = $(TOOLPATH)cc1.exe -I$(INCPATH) -I../ -Os -Wall -quiet
+GAS2NASK = $(TOOLPATH)gas2nask.exe -a
+OBJ2BIM  = $(TOOLPATH)obj2bim.exe
+MAKEFONT = $(TOOLPATH)makefont.exe
+BIN2OBJ  = $(TOOLPATH)bin2obj.exe
+BIM2HIG  = $(TOOLPATH)bim2hig.exe
+RULEFILE = ../high.rul
+EDIMG    = $(TOOLPATH)edimg.exe
+IMGTOL   = $(TOOLPATH)imgtol.com
+GOLIB    = $(TOOLPATH)golib00.exe 
+COPY     = copy
+DEL      = del
+
+default :
+	$(MAKE) $(APP).hig
+
+$(APP).bim : $(APP).obj Makefile ../app_make.txt
+	$(OBJ2BIM) @$(RULEFILE) out:$(APP).bim map:$(APP).map stack:$(STACK) \
+		$(APP).obj
+
+$(APP).hig : $(APP).bim Makefile ../app_make.txt
+	$(BIM2HIG) $(APP).bim $(APP).hig $(MALLOC)
+
+Horizon.img : ../kernel/ipl.bin ../kernel/kernel.sys $(APP).hig \
+		Makefile ../app_make.txt
+	$(EDIMG)   imgin:../../z_HighSDK/fdimg0at.tek \
+		wbinimg src:../kernel/ipl.bin len:512 from:0 to:0 \
+		copy from:../kernel/kernel.sys to:@: \
+		copy from:$(APP).hig to:@: \
+		imgout:Horizon.img
+
+%.gas : %.c Makefile ../app_make.txt
+	$(CC1) -o $*.gas $*.c
+
+%.asm : %.gas Makefile ../app_make.txt
+	$(GAS2NASK) $*.gas $*.asm
+
+%.obj : %.asm Makefile ../app_make.txt
+	$(NASK) $*.asm $*.obj $*.lst
+
+run :
+	$(MAKE) Horizon.img
+	$(COPY) Horizon.img ..\..\z_HighSDK\qemu\fdimage0.bin
+	$(MAKE) -C ../../z_HighSDK/qemu
+
+full :
+	$(MAKE) -C $(APILIBPATH)
+	$(MAKE) $(APP).hig
+
+clean :
+	-$(DEL) *.lst
+	-$(DEL) *.obj
+	-$(DEL) *.map
+	-$(DEL) *.bim
+
+src_only :
+	$(MAKE) clean
+	-$(DEL) $(APP).hig
